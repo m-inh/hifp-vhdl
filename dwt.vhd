@@ -1,11 +1,11 @@
 ENTITY dwt IS
     PORT (
-        clk: INT BIT;
         wave: IN INTEGER;
-        dwt_wave: OUT INTEGER);
+        dwt_wave: OUT INTEGER
+        );
 END ENTITY;
 
-ARCHITECTURE dwt OF dwt IS
+ARCHITECTURE rtl OF dwt IS
     TYPE INTEGER_VECTOR is
         array(1 to 8) of integer;
     SIGNAL temp_wave : INTEGER_VECTOR;
