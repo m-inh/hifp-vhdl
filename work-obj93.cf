@@ -1,7 +1,0 @@
-v 4
-file . "my_sum_tb.vhd" "51d67db61f6e9aaa6c07fb9d2afcd86a0ff7d31d" "20201117073246.962":
-  entity my_sum_tb at 5( 79) + 0 on 19;
-  architecture rtl of my_sum_tb at 8( 112) + 0 on 20;
-file . "carry_lookahead_adder_tb.vhd" "296b6a2cb4e0fae610929fe08318decdd1979745" "20201117065522.187":
-  entity carry_lookahead_adder_tb at 4( 197) + 0 on 13;
-  architecture behave of carry_lookahead_adder_tb at 10( 307) + 0 on 14;

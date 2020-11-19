@@ -1,20 +1,52 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+package dwt_pkg is
+    type integer_array is array(natural range <>) of integer;
+end package;
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.dwt_pkg.all;
+
+------------------------------------------------
+
 ENTITY dwt IS
+
     PORT (
-        wave: IN INTEGER;
-        dwt_wave: OUT INTEGER
-        );
+        wave: IN integer_array( 0 to 7 );
+        dwt_wave: OUT integer
+    );
+    
 END ENTITY;
 
 ARCHITECTURE rtl OF dwt IS
-    TYPE INTEGER_VECTOR is
-        array(1 to 8) of integer;
-    SIGNAL temp_wave : INTEGER_VECTOR;
+
+    signal temp_dwt_1: integer_array( 0 to 3 );
+    signal temp_dwt_2: integer_array( 0 to 1 );
+    signal temp_dwt_3: integer;
 
 BEGIN
-    PROCESS(clk)
-    BEGIN
-        IF (clk'EVENT AND clk='0') THEN
-            
-        END IF;
-    END PROCESS;
+
+    process(wave)
+    begin
+        for i in 0 to 2 loop
+            if (i=0) then                
+                temp_dwt_1(0) <= (wave(0) + wave(1)) / 2;
+                temp_dwt_1(1) <= (wave(2) + wave(3)) / 2;
+                temp_dwt_1(2) <= (wave(4) + wave(5)) / 2;
+                temp_dwt_1(3) <= (wave(6) + wave(7)) / 2;
+            elsif (i=1) then
+                temp_dwt_2(0) <= (temp_dwt_1(0) + temp_dwt_1(1)) / 2;
+                temp_dwt_2(1) <= (temp_dwt_1(2) + temp_dwt_1(3)) / 2;
+            else
+                temp_dwt_3 <= (temp_dwt_2(0) + temp_dwt_2(1)) / 2;
+            end if;
+        end loop;
+    end process;
+
+    dwt_wave <= temp_dwt_3;
+
 END ARCHITECTURE;
