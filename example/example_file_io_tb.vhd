@@ -85,6 +85,8 @@ begin
       r_ADD_TERM2 <= v_ADD_TERM2;
  
       wait for 60 ns;
+
+    --   report "v_OLINE: " & v_OLINE;
  
       write(v_OLINE, w_SUM, right, c_WIDTH);
       writeline(file_RESULTS, v_OLINE);

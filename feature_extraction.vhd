@@ -8,7 +8,7 @@ entity feature_extraction is
     generic (num_of_fpid_frames: positive := 4096);
 
     port (
-        dwt_all: in integer_array(0 to num_of_fpid_frames-1);
+        dwt_wave_all: in integer_array(0 to num_of_fpid_frames-1);
         fpid_all: out std_logic_vector(0 to num_of_fpid_frames-1)
     );
 
@@ -28,7 +28,7 @@ begin
         --         fpid_all(i to i) <= "0";
         --     end if;
         -- end process;
-        fpid_all(i to i) <= "1" when (dwt_all(i) > dwt_all(i+1)) else "0";
+        fpid_all(i to i) <= "1" when (dwt_wave_all(i) > dwt_wave_all(i+1)) else "0";
     end generate;
 
 end architecture;

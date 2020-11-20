@@ -1,41 +1,40 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use work.all;
 use work.dwt_pkg.all;
 
-
-ENTITY dwt_all_tb IS
+entity hifp_file_tb is
     generic (num_of_fpid_frames : positive := 2);
-END ENTITY;
+end entity;
 
-ARCHITECTURE rtl OF dwt_all_tb IS
+architecture rtl of hifp_file_tb is
+
+    signal tb_wave_all: integer_array(0 to num_of_fpid_frames*32-1);
+    signal tb_fpid_all: std_logic_vector(0 to num_of_fpid_frames-1);
+
+    component hifp is
+        generic (num_of_fpid_frames: positive);
     
-    signal tb_wave_all: integer_array( 0 to num_of_fpid_frames*32-1 );
-    signal tb_dwt_wave_all: integer_array( 0 to num_of_fpid_frames-1 );
-
-    component dwt_all is 
-        generic (num_of_fpid_frames : positive);
         port (
-            wave_all: in integer_array( 0 to num_of_fpid_frames*32-1 );
-            dwt_wave_all: out integer_array( 0 to num_of_fpid_frames-1 )
+            wave_all: in integer_array(0 to num_of_fpid_frames*32-1);
+            fpid_all: out std_logic_vector(0 to num_of_fpid_frames-1)
         );
-    end component dwt_all;
+    end component;
 
-BEGIN
-    
-    dwt_all_en: dwt_all 
-    generic map(num_of_fpid_frames)
+begin
+
+    en_hifp: hifp
+    generic map (num_of_fpid_frames => num_of_fpid_frames)
     port map (
         tb_wave_all,
-        tb_dwt_wave_all
+        tb_fpid_all
     );
 
     process is
     begin
         tb_wave_all <= (1, 1, 1, 1, 1, 1, 1, 1, others => 0);
         wait for 100 ns;
-        
+
         tb_wave_all(0) <= 3;
         tb_wave_all(1) <= 3;
         tb_wave_all(2) <= 3;
@@ -102,12 +101,12 @@ BEGIN
         tb_wave_all(62) <= 2;
         tb_wave_all(63) <= 2;
         
-
         wait for 100 ns;
+        
 
         tb_wave_all <= (1, 2, 3, 4, 5, 6, 7, 8, others => 7);
-
         wait for 100 ns;
+
     end process;
 
-END ARCHITECTURE;
+end architecture;

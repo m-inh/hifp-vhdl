@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 package dwt_pkg is
-    type integer_array is array(natural range <>) of integer;
+    type integer_array is array(natural range <>) of integer range 0 to 65535;
 end package;
 
 library ieee;

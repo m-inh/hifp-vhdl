@@ -21,7 +21,7 @@ architecture rtl of hifp is
 
         port (
             wave_all: in integer_array( 0 to num_of_fpid_frames*32-1 );
-            dwt_all: out integer_array( 0 to num_of_fpid_frames-1 )
+            dwt_wave_all: out integer_array( 0 to num_of_fpid_frames-1 )
         );
     end component;
 
@@ -29,7 +29,7 @@ architecture rtl of hifp is
         generic (num_of_fpid_frames: positive);
 
         port (
-            dwt_all: in integer_array(0 to num_of_fpid_frames-1);
+            dwt_wave_all: in integer_array(0 to num_of_fpid_frames-1);
             fpid_all: out std_logic_vector(0 to num_of_fpid_frames-1)
         );
     end component;
