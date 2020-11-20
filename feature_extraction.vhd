@@ -21,14 +21,12 @@ begin
     fpid_all(num_of_fpid_frames-1 to num_of_fpid_frames-1) <= "0";
 
     gen: for i in 0 to num_of_fpid_frames-2 generate
-        -- process (dwt_all) is
-        --     if (dwt_all(i) > dwt_all(i+1)) then
-        --         fpid_all(i to i) <= "1";
-        --     else
-        --         fpid_all(i to i) <= "0";
-        --     end if;
-        -- end process;
         fpid_all(i to i) <= "1" when (dwt_wave_all(i) > dwt_wave_all(i+1)) else "0";
     end generate;
 
 end architecture;
+
+-- 00000
+-- 00001
+-- 10000
+-- 11110

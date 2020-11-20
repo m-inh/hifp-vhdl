@@ -35,6 +35,8 @@ begin
         tb_wave_all <= (1, 1, 1, 1, 1, 1, 1, 1, others => 0);
         wait for 100 ns;
 
+        report "ok men";
+
         tb_wave_all(0) <= 3;
         tb_wave_all(1) <= 3;
         tb_wave_all(2) <= 3;
