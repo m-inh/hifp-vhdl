@@ -10,13 +10,13 @@ END ENTITY;
 
 ARCHITECTURE rtl OF dwt_tb IS
     
-    signal tb_wave: integer_array( 0 to 7 );
-    signal tb_dwt_wave: integer;
+    signal tb_wave: natural_array( 0 to 7 );
+    signal tb_dwt_wave: natural;
 
     component dwt is 
         port (
-            wave: in integer_array;
-            dwt_wave: out integer
+            wave: in natural_array;
+            dwt_wave: out natural
         );
     end component dwt;
 

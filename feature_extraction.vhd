@@ -8,7 +8,7 @@ entity feature_extraction is
     generic (num_of_fpid_frames: positive := 4096);
 
     port (
-        dwt_wave_all: in integer_array(0 to num_of_fpid_frames-1);
+        dwt_wave_all: in natural_array(0 to num_of_fpid_frames-1);
         fpid_all: out std_logic_vector(0 to num_of_fpid_frames-1)
     );
 

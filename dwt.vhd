@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 package dwt_pkg is
-    type integer_array is array(natural range <>) of integer;
+    type natural_array is array(natural range <>) of natural;
 end package;
 
 library ieee;
@@ -16,17 +16,17 @@ use work.dwt_pkg.all;
 ENTITY dwt IS
 
     PORT (
-        wave: IN integer_array( 0 to 7 );
-        dwt_wave: OUT integer
+        wave: IN natural_array( 0 to 7 );
+        dwt_wave: OUT natural
     );
     
 END ENTITY;
 
 ARCHITECTURE rtl OF dwt IS
 
-    signal temp_dwt_1: integer_array( 0 to 3 );
-    signal temp_dwt_2: integer_array( 0 to 1 );
-    signal temp_dwt_3: integer;
+    signal temp_dwt_1: natural_array( 0 to 3 );
+    signal temp_dwt_2: natural_array( 0 to 1 );
+    signal temp_dwt_3: natural;
 
 BEGIN
 

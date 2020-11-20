@@ -7,21 +7,21 @@ entity hifp is
     generic (num_of_fpid_frames: positive := 4096);
 
     port (
-        wave_all: in integer_array(0 to num_of_fpid_frames*32-1);
+        wave_all: in natural_array(0 to num_of_fpid_frames*32-1);
         fpid_all: out std_logic_vector(0 to num_of_fpid_frames-1)
     );
 end entity;
 
 architecture rtl of hifp is
 
-    signal temp_dwt_all: integer_array(0 to num_of_fpid_frames-1);
+    signal temp_dwt_all: natural_array(0 to num_of_fpid_frames-1);
 
     component dwt_all is
         generic (num_of_fpid_frames : positive);
 
         port (
-            wave_all: in integer_array( 0 to num_of_fpid_frames*32-1 );
-            dwt_wave_all: out integer_array( 0 to num_of_fpid_frames-1 )
+            wave_all: in natural_array( 0 to num_of_fpid_frames*32-1 );
+            dwt_wave_all: out natural_array( 0 to num_of_fpid_frames-1 )
         );
     end component;
 
@@ -29,7 +29,7 @@ architecture rtl of hifp is
         generic (num_of_fpid_frames: positive);
 
         port (
-            dwt_wave_all: in integer_array(0 to num_of_fpid_frames-1);
+            dwt_wave_all: in natural_array(0 to num_of_fpid_frames-1);
             fpid_all: out std_logic_vector(0 to num_of_fpid_frames-1)
         );
     end component;

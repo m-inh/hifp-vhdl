@@ -9,14 +9,14 @@ end entity;
 
 architecture rtl of feature_extraction_tb is
 
-    signal tb_dwt_all: integer_array(0 to num_of_fpid_frames-1);
+    signal tb_dwt_all: natural_array(0 to num_of_fpid_frames-1);
     signal tb_fpid_all: std_logic_vector(0 to num_of_fpid_frames-1);
 
     component feature_extraction is
         generic (num_of_fpid_frames: positive);
 
         port (
-            dwt_wave_all: in integer_array(0 to num_of_fpid_frames-1);
+            dwt_wave_all: in natural_array(0 to num_of_fpid_frames-1);
             fpid_all: out std_logic_vector(0 to num_of_fpid_frames-1)
         );
     end component;

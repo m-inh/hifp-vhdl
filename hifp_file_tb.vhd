@@ -9,14 +9,14 @@ end entity;
 
 architecture rtl of hifp_file_tb is
 
-    signal tb_wave_all: integer_array(0 to num_of_fpid_frames*32-1);
+    signal tb_wave_all: natural_array(0 to num_of_fpid_frames*32-1);
     signal tb_fpid_all: std_logic_vector(0 to num_of_fpid_frames-1);
 
     component hifp is
         generic (num_of_fpid_frames: positive);
     
         port (
-            wave_all: in integer_array(0 to num_of_fpid_frames*32-1);
+            wave_all: in natural_array(0 to num_of_fpid_frames*32-1);
             fpid_all: out std_logic_vector(0 to num_of_fpid_frames-1)
         );
     end component;

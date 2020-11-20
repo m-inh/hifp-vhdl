@@ -8,21 +8,21 @@ entity dwt_all is
     generic (num_of_fpid_frames : positive := 4096);
 
     port (
-        wave_all: in integer_array( 0 to num_of_fpid_frames*32-1 );
-        dwt_wave_all: out integer_array( 0 to num_of_fpid_frames-1 )
+        wave_all: in natural_array( 0 to num_of_fpid_frames*32-1 );
+        dwt_wave_all: out natural_array( 0 to num_of_fpid_frames-1 )
     );
 end entity;
 
 
 architecture rtl of dwt_all is
 
-    signal tmp_wave_all: integer_array( 0 to num_of_fpid_frames*32-1 );
-    signal tmp_dwt_all: integer_array( 0 to num_of_fpid_frames-1 );
+    signal tmp_wave_all: natural_array( 0 to num_of_fpid_frames*32-1 );
+    signal tmp_dwt_all: natural_array( 0 to num_of_fpid_frames-1 );
 
     component dwt is 
         port (
-            wave: in integer_array;
-            dwt_wave: out integer
+            wave: in natural_array;
+            dwt_wave: out natural
         );
     end component dwt;
 
