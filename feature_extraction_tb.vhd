@@ -38,7 +38,7 @@ begin
         tb_dwt_all <= (12, 10, others => 0);
         wait for 100 ns;
 
-        tb_dwt_all <= (10000000, 1200, others => 0);
+        tb_dwt_all <= (10000, 1200, others => 0);
         wait for 100 ns;
     end process;
 
