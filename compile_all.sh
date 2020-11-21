@@ -1,7 +1,7 @@
-ghdl -a --ieee=synopsys --std=08 dwt.vhd
-ghdl -a --ieee=synopsys --std=08 dwt_all.vhd
-ghdl -a --ieee=synopsys --std=08 feature_extraction.vhd
-ghdl -a --ieee=synopsys --std=08 hifp.vhd
-ghdl -a --ieee=synopsys --std=08 hifp_file_tb.vhd
+ghdl -a --ieee=synopsys  dwt.vhd
+ghdl -a --ieee=synopsys  dwt_all.vhd
+ghdl -a --ieee=synopsys  feature_extraction.vhd
+ghdl -a --ieee=synopsys  hifp.vhd
+ghdl -a --ieee=synopsys  hifp_file_tb.vhd
 
-ghdl -r --ieee=synopsys --std=08 hifp_file_tb
+ghdl -r --ieee=synopsys  hifp_file_tb
