@@ -25,3 +25,8 @@ begin
     end generate;
 
 end architecture;
+
+-- 00000
+-- 00001
+-- 10000
+-- 11110
