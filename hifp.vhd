@@ -8,6 +8,7 @@ entity hifp is
 
     port (
         wave_all: in natural_array(0 to num_of_fpid_frames*32-1);
+        wave_dwt_all: out natural_array(0 to num_of_fpid_frames-1);
         fpid_all: out natural_array(0 to num_of_fpid_frames-1)
     );
 end entity;
@@ -49,5 +50,7 @@ begin
         temp_dwt_all,
         fpid_all
     );
+
+    wave_dwt_all <= temp_dwt_all;
 
 end architecture;
